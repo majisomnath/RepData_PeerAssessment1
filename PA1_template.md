@@ -9,7 +9,7 @@ Call required libraries for this assignment:
 library(dplyr)
 ```
 
-##1. Code for reading in the dataset and/or processing the data:
+## 1. Code for reading in the dataset and/or processing the data:
 
 ```r
 actv <- read.csv("activity.csv",na.strings = "NA")
@@ -39,7 +39,7 @@ str(actv)
 ```
 ----------------------------------------------------------------
 
-##2. Histogram of the total number of steps taken each day:
+## 2. Histogram of the total number of steps taken each day:
 
 ```r
 agg_step <- aggregate(actv$steps, by = list(actv$date), FUN = "sum", na.rm = TRUE)
@@ -50,7 +50,7 @@ hist(agg_step$x, col="blue", main = "Histogram plot of Total Number Steps (witho
 ----------------------------------------------------------------
 
 
-##3. Mean and median number of steps taken each day:
+## 3. Mean and median number of steps taken each day:
 
 ```r
 mnval <- mean(agg_step$x)
@@ -62,7 +62,7 @@ Median number of steps taken each day : 10395
 
 ----------------------------------------------------------------
 
-##4. Time series plot of the average number of steps taken:
+## 4. Time series plot of the average number of steps taken:
 
 ```r
 avg_step <- aggregate(actv$steps, by = list(actv$interval), FUN = "mean", na.rm = TRUE)
@@ -74,7 +74,7 @@ plot(avg_step$interval, avg_step$steps,type = "l", col = "red", main = "Time ser
 ----------------------------------------------------------------
 
 
-##5. The 5-minute interval that, on average, contains the maximum number of steps:
+## 5. The 5-minute interval that, on average, contains the maximum number of steps:
 
 ```r
 max_avg <- max(avg_step$steps)
@@ -88,7 +88,7 @@ filter(avg_step, steps == max_avg)
 ----------------------------------------------------------------
 
 
-##6. Code to describe and show a strategy for imputing missing data:
+## 6. Code to describe and show a strategy for imputing missing data:
 Calculate the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
 ```r
@@ -139,7 +139,7 @@ str(actv_new)
 ```
 ----------------------------------------------------------------
 
-##7. Histogram of the total number of steps taken each day after missing values are imputed:
+## 7. Histogram of the total number of steps taken each day after missing values are imputed:
 Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 ```r
@@ -162,7 +162,7 @@ Observation: The mean and median values are highrer after replacing missing valu
 
 ----------------------------------------------------------------
 
-##8. Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
+## 8. Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
 
 Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
